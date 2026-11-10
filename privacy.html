@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f4fa" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' blob: data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <title>Конфиденциальность — upercode128</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="privacy-page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="upercode128"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>upercode128<span class="brand-dot">.</span></span></a>
+      <div class="privacy-header-actions">
+        <button class="theme-toggle" id="privacy-theme-toggle" type="button" aria-label="Включить тёмную тему" title="Включить тёмную тему"><span class="moon-icon" aria-hidden="true">☾</span><span class="sun-icon" aria-hidden="true">☼</span></button>
+        <label class="language-control"><span class="sr-only">Язык / Język / Language</span><select id="privacy-language" aria-label="Язык / Język / Language"><option value="ru">RU</option><option value="pl">PL</option><option value="en">EN</option></select></label>
+      </div>
+    </header>
+    <main class="privacy-shell">
+      <div class="eyebrow"><span data-i18n="eyebrow">ВАШИ ДАННЫЕ — У ВАС</span><span class="eyebrow-line"></span><span>upercode128</span></div>
+      <h1 class="privacy-title" data-i18n="title">Конфиденциальность</h1>
+      <p class="privacy-lead" data-i18n="lead">Генератор обрабатывает введённые значения и создаёт штрихкоды в вашем браузере. Они не отправляются на сервер сайта.</p>
+      <section class="privacy-card"><span class="privacy-number">01</span><div><h2 data-i18n="local_title">Обработка на устройстве</h2><p data-i18n="local_body">Введённый текст используется только для построения штрихкодов и подготовки файлов SVG/PNG в браузере. Сайт не сохраняет его и не отправляет куда-либо.</p></div></section>
+      <section class="privacy-card"><span class="privacy-number">02</span><div><h2 data-i18n="prefs_title">Настройки интерфейса</h2><p data-i18n="prefs_body">В localStorage сохраняются только выбранные язык и тема, чтобы запомнить ваши предпочтения. Эти настройки остаются на устройстве, пока вы не очистите данные сайта. Введённые штрихкодные данные там не хранятся.</p></div></section>
+      <section class="privacy-card"><span class="privacy-number">03</span><div><h2 data-i18n="tracking_title">Cookies и аналитика</h2><p data-i18n="tracking_body">Сайт не использует cookies, рекламные трекеры, аналитику, аккаунты или встроенные сторонние ресурсы. Библиотека генерации и стили загружаются с этого сайта.</p></div></section>
+      <section class="privacy-card"><span class="privacy-number">04</span><div><h2 data-i18n="links_title">Внешние ссылки и хостинг</h2><p data-i18n="links_body">Если вы перейдёте по ссылке на X, ваш браузер подключится к X, который обрабатывает данные согласно собственной политике. Хостинг сайта может вести технические журналы запросов, например IP-адрес и время обращения; это зависит от выбранного провайдера.</p></div></section>
+      <aside class="privacy-operator"><strong data-i18n="operator_title">Информация об операторе</strong><p data-i18n="operator_body">Для публикации сайта оператору следует указать в этой политике своё имя или название, контактные данные, сведения о хостинге и сроки хранения технических журналов. Эти сведения зависят от владельца и провайдера сайта.</p></aside>
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> <span data-i18n="back">Вернуться к генератору</span></a>
+    </main>
+    <script src="privacy.js"></script>
+  </body>
+</html>

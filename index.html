@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f2" />
+    <meta name="description" content="Бесплатный генератор штрихкодов Code 128. Создавайте и скачивайте штрихкоды в SVG и PNG." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' blob: data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <title>Code 128 — генератор штрихкодов</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="upercode128">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span>upercode128<span class="brand-dot">.</span></span>
+      </a>
+      <div class="topbar-actions"><div class="topbar-meta"><span class="status-dot"></span><span data-i18n="browser">Работает прямо в браузере</span></div><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Включить тёмную тему" title="Включить тёмную тему"><span class="moon-icon" aria-hidden="true">☾</span><span class="sun-icon" aria-hidden="true">☼</span></button><label class="language-control"><span class="sr-only">Язык / Język / Language</span><select id="language-select" aria-label="Язык / Język / Language"><option value="ru">RU</option><option value="pl">PL</option><option value="en">EN</option></select></label></div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div class="eyebrow"><span data-i18n="eyebrow">ИНСТРУМЕНТ ДЛЯ CODE 128</span><span class="eyebrow-line"></span><span>01 / 01</span></div>
+        <h1 id="hero-title">Штрихкод.<br /><span>Без лишнего.</span></h1>
+        <p class="intro-copy" data-i18n="intro">Введите данные — и получите готовый Code 128.<br class="desktop-break" /> Бесплатно, быстро, без регистрации.</p>
+      </section>
+
+      <section class="workspace" aria-label="Генератор штрихкодов">
+        <div class="form-panel">
+          <div class="panel-heading"><span class="step">01</span><h2 data-i18n="your_data">Ваши данные</h2></div>
+          <label class="field-label" for="barcode-input" data-i18n="one_line">ОДНА СТРОКА — ОДИН КОД</label>
+          <div class="input-wrap textarea-wrap">
+            <textarea id="barcode-input" rows="5" autocomplete="off" spellcheck="false" aria-describedby="input-hint error-message">4820198765432</textarea>
+            <button class="clear-button" id="clear-button" type="button" aria-label="Очистить поле" title="Очистить">×</button>
+          </div>
+          <div class="field-foot"><span id="input-hint" data-i18n="input_hint">Пустые строки пропускаются · до 80 символов в строке</span><span><span id="char-count">1</span> / 30</span></div>
+          <div id="error-message" class="error-message" role="alert" aria-live="polite"></div>
+          <div class="divider"></div>
+          <div class="settings-row"><div><div class="setting-title" data-i18n="show_value">Показывать значение</div><div class="setting-caption" data-i18n="under_barcode">Под штрихкодом</div></div><label class="switch"><input id="show-text" type="checkbox" checked /><span class="switch-track"></span></label></div>
+          <div class="settings-row"><div><div class="setting-title" data-i18n="barcode_size">Размер штрихкода</div><div class="setting-caption" data-i18n="size_caption">Для предпросмотра и экспорта</div></div><select id="barcode-size" class="size-select" aria-label="Размер штрихкода"><option value="small" data-i18n="small">Компактный</option><option value="medium" selected data-i18n="medium">Стандартный</option><option value="large" data-i18n="large">Крупный</option></select></div>
+          <div class="settings-row"><div><div class="setting-title" data-i18n="barcode_color">Цвет штрихкода</div><div class="setting-caption" data-i18n="choose_shade">Выберите оттенок</div></div><div class="color-control"><input id="bar-color" type="color" value="#171916" aria-label="Цвет штрихкода" /><span id="color-label">#171916</span></div></div>
+          <div class="divider bottom-divider"></div>
+          <button id="example-button" class="example-button" type="button"><span class="example-icon">↗</span> <span data-i18n="try_example">Попробовать пример</span> <span class="example-value">CODE-128</span></button>
+        </div>
+
+        <div class="preview-panel">
+          <div class="preview-top"><div class="panel-heading"><span class="step">02</span><h2 data-i18n="result">Результат</h2></div><span class="format-tag"><span class="tag-dot"></span> CODE 128</span></div>
+          <div class="barcode-stage" id="barcode-stage">
+            <div class="barcode-list" id="barcode-list"></div>
+            <div class="preview-empty" id="preview-empty" hidden><span class="empty-icon">▤</span><span id="empty-message" data-i18n="empty">Введите данные, чтобы создать штрихкод</span></div>
+          </div>
+          <div class="barcode-details"><span class="detail-label" data-i18n="in_set">В НАБОРЕ</span><span id="value-preview" class="detail-value">1 штрихкод</span></div>
+          <div class="download-row">
+            <button id="download-svg" class="button button-primary" type="button"><span class="download-icon">↓</span> <span data-i18n="download_svg">Скачать лист SVG</span></button>
+            <button id="download-png" class="button button-secondary" type="button"><span class="download-icon">↓</span> <span data-i18n="download_png">Скачать лист PNG</span></button>
+          </div>
+          <p class="format-note" data-i18n="format_note">Все штрихкоды из списка будут на одном листе.</p>
+        </div>
+      </section>
+
+      <section class="bottom-note"><span class="note-symbol">✳</span><p data-i18n="bottom_note">Code 128 автоматически подбирает наиболее компактный формат кодирования.<br class="desktop-break" /> Подходит для инвентаря, посылок и маркировки товаров.</p><span class="note-code">CODE 128 / ISO 15417</span></section>
+    </main>
+
+    <footer><span data-i18n="footer_left">Сделано просто.</span><span><span data-i18n="footer_right">Штрихкоды не покидают ваш браузер</span> <span class="footer-lock">↗</span></span><a class="privacy-link" href="privacy.html" data-i18n="privacy_link">Конфиденциальность</a><a class="developer-link" href="https://x.com/upermane" target="_blank" rel="noopener noreferrer"><span data-i18n="developer">Разработчик</span><span aria-hidden="true"> ↗</span></a></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="vendor/JsBarcode.all.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
